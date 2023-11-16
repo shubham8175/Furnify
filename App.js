@@ -1,20 +1,19 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import BottomTabNavigator from './Navigation/BottomTabNavigator';
 
 const App = () => {
   return (
-    <View>
-      <Text style={styles.text}>Hiii</Text>
-      <Text style={styles.text}>Hiii my name is Shubham</Text>
+    <View style={styles.container}>
+      <BottomTabNavigator />
     </View>
-  )
-}
+  );
+};
 
-export default App
+export default App;
 
 const styles = StyleSheet.create({
-  text:{
-    fontSize:30,
-    fontFamily:'Poppins-ExtraBold'
-  }
-})
+  container: {
+    flex: 1,
+  },
+});
