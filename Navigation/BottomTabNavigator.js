@@ -1,26 +1,60 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import {NavigationContainer} from '@react-navigation/native'
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
-import Profile from '../Screens/Profile';
-import Cart from '../Screens/Cart';
-import ProductDetails from '../Screens/ProductDetails';
-import Search from '../Screens/Search';
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import React from 'react';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import {COLORS} from '../constants';
+import {Home, Search, Profile} from '../Screens';
 
-
-const Tab=createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
   return (
-    <NavigationContainer>
-        <Tab.Navigator screenOptions={{headerShown:false}}>
-            <Tab.Screen options={{tabBarIcon:<Ionicons name='person' size={25}/>}} name='Profile' component={Profile}/>
-            <Tab.Screen name='Cart' component={Cart}/>
-            <Tab.Screen name='ProductDetails' component={ProductDetails}/>
-            <Tab.Screen name='Search' component={Search}/>
-        </Tab.Navigator>
-    </NavigationContainer>
-  )
-}
+    <Tab.Navigator screenOptions={{headerShown: false}}>
+      <Tab.Screen
+        options={{
+          tabBarIcon: ({focused}) => {
+            return (
+              <Ionicons
+                name={focused ? 'home' : 'home-outline'}
+                size={24}
+                color={focused ? COLORS.primary : COLORS.gray2}
+              />
+            );
+          },
+        }}
+        name="Home"
+        component={Home}
+      />
+      <Tab.Screen
+        options={{
+          tabBarIcon: ({focused}) => {
+            return (
+              <Ionicons
+                name={'search-sharp'}
+                size={24}
+                color={focused ? COLORS.primary : COLORS.gray2}
+              />
+            );
+          },
+        }}
+        name="Search"
+        component={Search}
+      />
+      <Tab.Screen
+        options={{
+          tabBarIcon: ({focused}) => {
+            return (
+              <Ionicons
+                name={focused ? 'person' : 'person-outline'}
+                size={24}
+                color={focused ? COLORS.primary : COLORS.gray2}
+              />
+            );
+          },
+        }}
+        name="Profile"
+        component={Profile}
+      />
+    </Tab.Navigator>
+  );
+};
 
-export default BottomTabNavigator
+export default BottomTabNavigator;
