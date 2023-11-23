@@ -11,6 +11,7 @@ import {COLORS, SIZES} from '../constants';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import {Wellcome} from '../Components';
+import Carousel from '../Components/home/Carousel';
 
 const Home = () => {
   return (
@@ -32,6 +33,7 @@ const Home = () => {
       </View>
       <ScrollView>
         <Wellcome />
+        <Carousel/>
       </ScrollView>
     </SafeAreaView>
   );
